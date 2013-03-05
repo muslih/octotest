@@ -1,0 +1,234 @@
+$warna1 : #155F83;
+$warna2 : #185674;
+$warna3 : #444;
+$warna4 : #eee;
+
+@import "compass";
+@import "blueprint/buttons";
+@import "blueprint/form";
+
+
+
+body{
+	border-top: 10px solid$warna2;
+	font-family:arial;
+	color:$warna2;
+	padding-top:30px;
+	background: url(../img/footer-bg.jpg) bottom center no-repeat;
+	background-attachment:fixed;	
+}
+
+p{
+	font-size:13px;
+	color:$warna3;
+	text-align:justify;
+	line-height: 20px;
+}
+
+h3{
+	line-height:25px;
+}
+
+a{
+	text-decoration:none;
+}
+
+
+/*-----------akhir tag umum--------------*/
+
+#header h1{
+	font-size:1.5em;
+    padding-bottom: 18px;
+    border-bottom: 1px solid $warna4;
+}
+
+nav {
+	border-bottom:1px solid $warna4;
+	ul{
+		
+		li{
+			float:left;
+			list-style:none;
+			position:relative;
+			a {
+				@include transition-property(background);
+				@include transition-duration(1s);
+				background: transparent;
+				display:inline-block;
+				padding: 10px 15px;
+				
+				font-size:13px;
+				color: $warna1;
+				z-index:98
+			}
+
+			a:hover{
+				background: $warna1;
+				color:#fff;
+				}
+		}
+
+		li:hover > ul{
+			visibility:visible;
+		}
+
+		ul{
+			background: #fff;
+			border: 1px solid #eee;
+			border-top:0px;
+			display:block;
+			position:absolute;
+			left:0px;
+			z-index:99;
+			width:auto;
+			visibility:hidden;
+
+			li{
+				width:100%;
+				a{	
+					display:block;
+				}
+			}
+		}
+	}
+
+	#pull{
+			display:none;
+		}
+}
+
+.konten{
+	margin-top:15px;
+	margin-bottom:15px;
+
+	h3{
+		font-weight:bold;
+		margin-bottom:10px;
+	}
+
+	form{
+		text-align:center;
+		input{
+				padding: 5px 10px;
+				border:1px solid #C9C9C9;
+				margin-bottom:10px;
+				@include box-shadow (inset rgba(121, 121, 121, 0.31));
+				@include border-radius (2px);
+			}
+
+		.tbl{
+			text-align:center;
+			margin-left:auto;
+			margin-right:auto;
+			display: inline-block;
+			padding: 4px 10px;
+			margin-bottom: 5px;
+			font-size: 13px;
+			line-height: 18px;
+			@include border-radius (3px);
+			border: 1px solid #eee;
+			color: #fff;
+			background: $warna2;
+		}
+	}
+
+	.kotak{
+		background: $warna1;
+		color:#fff;
+		padding:10px;
+		text-align:center;
+		@include border-radius (3px);
+		@include box-shadow (rgba(121, 121, 121, 0.31));
+
+		h3{
+			text-align:center;
+		}
+
+		.tbl{
+			color: $warna2;
+			background: #fff;
+		}
+	}
+
+}
+
+.konten [class*=zeen] {
+		padding: 5px 0;
+
+}
+
+
+footer{
+	border-top:1px solid #eee;
+	padding: 15px 0;
+}
+
+
+
+/*---Smartphone---*/
+@media only screen and (max-width : 480px) {
+	nav {
+		background: rgba(#fff,0.5);
+		height:auto;
+		ul{
+			display:none;
+			position:relative;
+			height: auto;
+			
+
+			li {
+				display:block;
+				width: 100%;
+
+				a {
+					display:block !important;
+					border-bottom: 1px solid #eee;
+				}
+			}
+
+
+			ul{
+				display: none ;
+				position: relative !important;
+				visibility:visible;
+				border:none;
+				
+				li{
+					a{
+						padding-left:25px !important;
+					}
+				}
+				li:firs-child{
+					border-buttom:0px;
+				}
+			}
+		}	
+
+		#pull{
+			display:block;
+			font-size:12px;
+			background-color: $warna1;
+			color: #fff;
+			position: relative;
+			overflow:hidden;
+			height:auto;
+			padding: 10px 10px;
+		}
+
+		#pull:after {
+			content:"";
+			background: url('../img/nav-icon.png') no-repeat;
+			width: 30px;
+			height: 30px;
+			display: inline-block;
+			position: absolute;
+			right: 5px;
+			top: 6px;
+		}
+
+	}
+
+	.tbl{
+		display: block !important;
+	}
+}
